@@ -3,13 +3,13 @@ import java.util.Arrays;
 public class MergeSort {
 
     // Hàm hợp nhất hai mảng con đã được sắp xếp
-    public static void merge(int[] arr, int left, int mid, int right) {
+    public static void merge(Student1[] arr, int left, int mid, int right) {
         // Tạo hai mảng con tạm thời
         int n1 = mid - left + 1;
         int n2 = right - mid;
 
-        int[] leftArray = new int[n1];
-        int[] rightArray = new int[n2];
+        Student1[] leftArray = new Student1[n1];
+        Student1[] rightArray = new Student1[n2];
 
         // Sao chép dữ liệu vào các mảng tạm
         System.arraycopy(arr, left, leftArray, 0, n1);
@@ -19,7 +19,7 @@ public class MergeSort {
         int i = 0, j = 0;
         int k = left;
         while (i < n1 && j < n2) {
-            if (leftArray[i] <= rightArray[j]) {
+            if (leftArray[i].getMarks() <= rightArray[j].getMarks()) {
                 arr[k] = leftArray[i];
                 i++;
             } else {
@@ -45,7 +45,7 @@ public class MergeSort {
     }
 
     // Hàm Merge Sort chính
-    public static void mergeSort(int[] arr, int left, int right) {
+    public static void mergeSort(Student1[] arr, int left, int right) {
         if (left < right) {
             // Tìm chỉ số giữa
             int mid = (left + right) / 2;
@@ -60,5 +60,4 @@ public class MergeSort {
             merge(arr, left, mid, right);
         }
     }
-
 }
